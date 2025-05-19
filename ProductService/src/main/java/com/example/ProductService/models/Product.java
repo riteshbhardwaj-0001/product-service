@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "products")
@@ -23,5 +24,7 @@ public class Product extends BaseEntity{
     @Column(precision = 10 , scale = 2)
     private BigDecimal price;
 
+    @OneToMany(mappedBy = "product" , cascade = CascadeType.ALL)
+    private List<Variant> variantList;
 
 }
